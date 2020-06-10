@@ -17,6 +17,7 @@
 #import "BlockReturnCircleController.h"
 #import "UIDocumentInterationUseController.h"
 #import "DocumentSaveController.h"
+#import "DelayCodeController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -37,6 +38,7 @@ static NSString *ThreadCommunication = @"线程间的通信";
 static NSString *BlockReturnCircle = @"block循环引用";
 static NSString *UIDocumentInterationUse = @"UIDocumentInterationUse文件预览";
 static NSString *DocumentSave = @"DocumentSave文件缓存";
+static NSString *DelayCode = @"延迟操作测试";
 
 @implementation ViewController
 
@@ -62,6 +64,7 @@ static NSString *DocumentSave = @"DocumentSave文件缓存";
     [self.datasource addObject:BlockReturnCircle];
     [self.datasource addObject:UIDocumentInterationUse];
     [self.datasource addObject:DocumentSave];
+    [self.datasource addObject:DelayCode];
 }
 
 - (void)createTableView{
@@ -127,6 +130,10 @@ static NSString *DocumentSave = @"DocumentSave文件缓存";
     }
     if ([didSelectedCell isEqualToString:DocumentSave]) {
         DocumentSaveController *vc = [DocumentSaveController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if ([didSelectedCell isEqualToString:DelayCode]) {
+        DelayCodeController *vc = [DelayCodeController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

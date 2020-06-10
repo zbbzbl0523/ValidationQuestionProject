@@ -23,6 +23,7 @@
 		05B82EFF248F2D5D00E6258D /* UIDocumentInterationUseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EFE248F2D5C00E6258D /* UIDocumentInterationUseController.m */; };
 		05B82F01248F2FC000E6258D /* 计算机.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05B82F00248F2FBF00E6258D /* 计算机.pdf */; };
 		05B82F06248F7AB900E6258D /* DocumentSaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82F05248F7AB900E6258D /* DocumentSaveController.m */; };
+		05B82F0A2490D43600E6258D /* DelayCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82F092490D43600E6258D /* DelayCodeController.m */; };
 		05CD3C132487779B00106E30 /* CategoryPropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD3C122487779B00106E30 /* CategoryPropertyController.m */; };
 		05CD3C162487789D00106E30 /* CategoryPropertyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD3C152487789D00106E30 /* CategoryPropertyObject.m */; };
 		05CD3C1924877BB400106E30 /* CategoryPropertyObject+SchoolClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD3C1824877BB400106E30 /* CategoryPropertyObject+SchoolClass.m */; };
@@ -90,6 +91,8 @@
 		05B82F00248F2FBF00E6258D /* 计算机.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "计算机.pdf"; sourceTree = "<group>"; };
 		05B82F04248F7AB900E6258D /* DocumentSaveController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DocumentSaveController.h; sourceTree = "<group>"; };
 		05B82F05248F7AB900E6258D /* DocumentSaveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentSaveController.m; sourceTree = "<group>"; };
+		05B82F082490D43600E6258D /* DelayCodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelayCodeController.h; sourceTree = "<group>"; };
+		05B82F092490D43600E6258D /* DelayCodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelayCodeController.m; sourceTree = "<group>"; };
 		05CD3C112487779B00106E30 /* CategoryPropertyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryPropertyController.h; sourceTree = "<group>"; };
 		05CD3C122487779B00106E30 /* CategoryPropertyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryPropertyController.m; sourceTree = "<group>"; };
 		05CD3C142487789D00106E30 /* CategoryPropertyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryPropertyObject.h; sourceTree = "<group>"; };
@@ -278,6 +281,15 @@
 			path = DocumentSave;
 			sourceTree = "<group>";
 		};
+		05B82F072490D40600E6258D /* DelayCode */ = {
+			isa = PBXGroup;
+			children = (
+				05B82F082490D43600E6258D /* DelayCodeController.h */,
+				05B82F092490D43600E6258D /* DelayCodeController.m */,
+			);
+			path = DelayCode;
+			sourceTree = "<group>";
+		};
 		05CD3C102487775300106E30 /* CategoryProperty */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +334,7 @@
 		05CD3C2D2488DDF700106E30 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				05B82F072490D40600E6258D /* DelayCode */,
 				05B82F02248F755500E6258D /* DocumentSave */,
 				05B82EFC248F2D4100E6258D /* UIDocumentInterationControllerUse */,
 				05B82EF5248F1B2C00E6258D /* BlockReturnCircle */,
@@ -595,6 +608,7 @@
 				05B82EFB248F1B5200E6258D /* BlockReturnCircleObject.m in Sources */,
 				05CD3C202488D5FE00106E30 /* SwiftExample.swift in Sources */,
 				05CD3C342488DE6600106E30 /* UIColor+Hex.m in Sources */,
+				05B82F0A2490D43600E6258D /* DelayCodeController.m in Sources */,
 				053D2B6A247B97FB0095887E /* ViewController.m in Sources */,
 				053D2BA1247D002C0095887E /* MutiThreadPoolViewController.m in Sources */,
 				05CD3C242488D83600106E30 /* BezierPathController.m in Sources */,
