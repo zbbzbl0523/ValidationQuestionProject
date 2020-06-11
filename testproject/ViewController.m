@@ -18,6 +18,7 @@
 #import "UIDocumentInterationUseController.h"
 #import "DocumentSaveController.h"
 #import "DelayCodeController.h"
+#import "NSOperationTestController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -39,6 +40,7 @@ static NSString *BlockReturnCircle = @"block循环引用";
 static NSString *UIDocumentInterationUse = @"UIDocumentInterationUse文件预览";
 static NSString *DocumentSave = @"DocumentSave文件缓存";
 static NSString *DelayCode = @"延迟操作测试";
+static NSString *NSOperationTest = @"NSOperation测试";
 
 @implementation ViewController
 
@@ -53,6 +55,7 @@ static NSString *DelayCode = @"延迟操作测试";
 
 - (void)createrDataSource{
     self.datasource = [NSMutableArray new];
+    [self.datasource addObject:NSOperationTest];
     [self.datasource addObject:queueAbout];
     [self.datasource addObject:threadPoolAbout];
     [self.datasource addObject:CategoryPropertyAbout];
@@ -134,6 +137,10 @@ static NSString *DelayCode = @"延迟操作测试";
     }
     if ([didSelectedCell isEqualToString:DelayCode]) {
         DelayCodeController *vc = [DelayCodeController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if ([didSelectedCell isEqualToString:NSOperationTest]) {
+        NSOperationTestController *vc = [NSOperationTestController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

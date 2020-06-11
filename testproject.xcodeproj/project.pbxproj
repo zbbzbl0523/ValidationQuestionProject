@@ -24,6 +24,7 @@
 		05B82F01248F2FC000E6258D /* 计算机.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 05B82F00248F2FBF00E6258D /* 计算机.pdf */; };
 		05B82F06248F7AB900E6258D /* DocumentSaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82F05248F7AB900E6258D /* DocumentSaveController.m */; };
 		05B82F0A2490D43600E6258D /* DelayCodeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82F092490D43600E6258D /* DelayCodeController.m */; };
+		05B82F0E2491FD2800E6258D /* NSOperationTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82F0D2491FD2800E6258D /* NSOperationTestController.m */; };
 		05CD3C132487779B00106E30 /* CategoryPropertyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD3C122487779B00106E30 /* CategoryPropertyController.m */; };
 		05CD3C162487789D00106E30 /* CategoryPropertyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD3C152487789D00106E30 /* CategoryPropertyObject.m */; };
 		05CD3C1924877BB400106E30 /* CategoryPropertyObject+SchoolClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD3C1824877BB400106E30 /* CategoryPropertyObject+SchoolClass.m */; };
@@ -93,6 +94,8 @@
 		05B82F05248F7AB900E6258D /* DocumentSaveController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DocumentSaveController.m; sourceTree = "<group>"; };
 		05B82F082490D43600E6258D /* DelayCodeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelayCodeController.h; sourceTree = "<group>"; };
 		05B82F092490D43600E6258D /* DelayCodeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelayCodeController.m; sourceTree = "<group>"; };
+		05B82F0C2491FD2800E6258D /* NSOperationTestController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSOperationTestController.h; sourceTree = "<group>"; };
+		05B82F0D2491FD2800E6258D /* NSOperationTestController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSOperationTestController.m; sourceTree = "<group>"; };
 		05CD3C112487779B00106E30 /* CategoryPropertyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryPropertyController.h; sourceTree = "<group>"; };
 		05CD3C122487779B00106E30 /* CategoryPropertyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryPropertyController.m; sourceTree = "<group>"; };
 		05CD3C142487789D00106E30 /* CategoryPropertyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryPropertyObject.h; sourceTree = "<group>"; };
@@ -290,6 +293,15 @@
 			path = DelayCode;
 			sourceTree = "<group>";
 		};
+		05B82F0B2491FD0B00E6258D /* NSOperationAbout */ = {
+			isa = PBXGroup;
+			children = (
+				05B82F0C2491FD2800E6258D /* NSOperationTestController.h */,
+				05B82F0D2491FD2800E6258D /* NSOperationTestController.m */,
+			);
+			path = NSOperationAbout;
+			sourceTree = "<group>";
+		};
 		05CD3C102487775300106E30 /* CategoryProperty */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +346,7 @@
 		05CD3C2D2488DDF700106E30 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				05B82F0B2491FD0B00E6258D /* NSOperationAbout */,
 				05B82F072490D40600E6258D /* DelayCode */,
 				05B82F02248F755500E6258D /* DocumentSave */,
 				05B82EFC248F2D4100E6258D /* UIDocumentInterationControllerUse */,
@@ -617,6 +630,7 @@
 				05CD3C2C2488DCD300106E30 /* BezierPathCell.m in Sources */,
 				05B82EF4248DDC8500E6258D /* ThreadCommunicationController.m in Sources */,
 				05CD3C282488DA0A00106E30 /* TableViewConstructor.m in Sources */,
+				05B82F0E2491FD2800E6258D /* NSOperationTestController.m in Sources */,
 				05CD3C4D248A2B8700106E30 /* LifeCircleController.m in Sources */,
 				05CD3C43248A176300106E30 /* DeallocObject.m in Sources */,
 				05CD3C3F24892F1700106E30 /* FOOObject.m in Sources */,
