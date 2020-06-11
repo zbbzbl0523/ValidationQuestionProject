@@ -10,6 +10,8 @@
 
 @interface DelayCodeController ()
 
+@property (nonatomic, strong) dispatch_source_t timer;
+
 @end
 
 @implementation DelayCodeController
@@ -82,6 +84,10 @@
     });
 }
 
+
+
+
+
 #pragma mark - dispatch_after 是否需要runloop
 - (void)dispatchTimerTest{
     /// 创建一个新线程，此线程不给runloop （[NSRunLoop currentRunLoop]即可创建其对应runloop）看看dispatch_after能不能运行
@@ -92,29 +98,43 @@
 }
 
 - (void)otherThreadFunc{
-    //    /// 经过验证，dispatch_after 是不需要runloop就可以了的
-    //    dispatch_queue_t cu = dispatch_queue_create("con", DISPATCH_QUEUE_CONCURRENT);
-    //    for (int i = 0 ; i<10; i++) {
-    //        dispatch_sync(cu, ^{
-    //            dispatch_time_t dispatchTime = dispatch_time(DISPATCH_TIME_NOW, 5.0*NSEC_PER_SEC);
-    //            dispatch_after(dispatchTime, cu, ^{
-    //                NSLog(@" --- %@",[NSThread currentThread]);
-    //                NSLog(@"希望在子线程执行，看看没有runloop会不会跑");
-    //            });
-    //        });
-    //    }
+    /// 经过验证，dispatch_after 是不需要runloop就可以了的
+    dispatch_queue_t concurrentQueue = dispatch_queue_create("con", DISPATCH_QUEUE_CONCURRENT);
+//    for (int i = 0 ; i<10; i++) {
+//        dispatch_sync(concurrentQueue, ^{
+//            dispatch_time_t dispatchTime = dispatch_time(DISPATCH_TIME_NOW, 5.0*NSEC_PER_SEC);
+//            dispatch_after(dispatchTime, concurrentQueue, ^{
+//                NSLog(@" --- %@",[NSThread currentThread]);
+//                NSLog(@"希望在子线程执行，看看没有runloop会不会跑");
+//            });
+//        });
+//    }
+    // 以上方法为一次性的延时，执行完结束了
+    
+    
+    // GCD也可以创建一个timer,重复执行的
+    __weak typeof(self)weakSelf = self;
+    self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0,concurrentQueue);
+    dispatch_source_set_timer(self.timer, dispatch_time(DISPATCH_TIME_NOW, (1.0 * NSEC_PER_SEC)), (2.0 * NSEC_PER_SEC), 0);
+    dispatch_source_set_event_handler(self.timer, ^{
+        [weakSelf printSometing];
+    });
+    dispatch_resume(self.timer);
+    /// 注意一个问题，此方法的timer，会造成循环引用，因为timer需要由自己持有，否则创建完就会立马被销毁，然后无法开启。
+    /// @property (nonatomic, strong) dispatch_source_t timer;  添加此代码
+    
     
     /// 作为对比验证，验证nstimer是依赖于runloop的
     //    /// 如此，就不会打印了，因为timer没有被添加到一个runloop中
-    NSTimeInterval time = 2.0;
-    
-    /// 在初始化之前，我们给此runloop创建
-    NSRunLoop *loop = [NSRunLoop currentRunLoop];
-    /// 然后打印看看
-    NSLog(@" --- %@",[NSThread currentThread]);
-    /// 添加nstimer
-    [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(printSometing) userInfo:nil repeats:YES];
-    [loop run];
+//    NSTimeInterval time = 2.0;
+//
+//    /// 在初始化之前，我们给此runloop创建
+//    NSRunLoop *loop = [NSRunLoop currentRunLoop];
+//    /// 然后打印看看
+//    NSLog(@" --- %@",[NSThread currentThread]);
+//    /// 添加nstimer
+//    [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(printSometing) userInfo:nil repeats:YES];
+//    [loop run];
 //    [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(printSometing) userInfo:nil repeats:YES];
     
     
