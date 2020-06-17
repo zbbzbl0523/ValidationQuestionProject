@@ -17,6 +17,9 @@
 		053D2B8A247B98020095887E /* testprojectUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 053D2B89247B98020095887E /* testprojectUITests.m */; };
 		053D2BA1247D002C0095887E /* MutiThreadPoolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 053D2BA0247D002C0095887E /* MutiThreadPoolViewController.m */; };
 		053D2BA4247D054D0095887E /* MianQueueTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 053D2BA3247D054D0095887E /* MianQueueTestViewController.m */; };
+		05614B9E2499AFDC00357509 /* BLTransAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614B9D2499AFDC00357509 /* BLTransAnimation.m */; };
+		05614BA12499BBFB00357509 /* TransAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614BA02499BBFB00357509 /* TransAnimationController.m */; };
+		05614BA52499EC2C00357509 /* LockUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614BA42499EC2C00357509 /* LockUseViewController.m */; };
 		05B82EF4248DDC8500E6258D /* ThreadCommunicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EF3248DDC8500E6258D /* ThreadCommunicationController.m */; };
 		05B82EF8248F1B4000E6258D /* BlockReturnCircleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EF7248F1B4000E6258D /* BlockReturnCircleController.m */; };
 		05B82EFB248F1B5200E6258D /* BlockReturnCircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EFA248F1B5200E6258D /* BlockReturnCircleObject.m */; };
@@ -81,6 +84,12 @@
 		053D2BA0247D002C0095887E /* MutiThreadPoolViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MutiThreadPoolViewController.m; sourceTree = "<group>"; };
 		053D2BA2247D054D0095887E /* MianQueueTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MianQueueTestViewController.h; sourceTree = "<group>"; };
 		053D2BA3247D054D0095887E /* MianQueueTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MianQueueTestViewController.m; sourceTree = "<group>"; };
+		05614B9C2499AFDC00357509 /* BLTransAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BLTransAnimation.h; sourceTree = "<group>"; };
+		05614B9D2499AFDC00357509 /* BLTransAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLTransAnimation.m; sourceTree = "<group>"; };
+		05614B9F2499BBFB00357509 /* TransAnimationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TransAnimationController.h; sourceTree = "<group>"; };
+		05614BA02499BBFB00357509 /* TransAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransAnimationController.m; sourceTree = "<group>"; };
+		05614BA32499EC2C00357509 /* LockUseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockUseViewController.h; sourceTree = "<group>"; };
+		05614BA42499EC2C00357509 /* LockUseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LockUseViewController.m; sourceTree = "<group>"; };
 		05B82EF2248DDC8500E6258D /* ThreadCommunicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadCommunicationController.h; sourceTree = "<group>"; };
 		05B82EF3248DDC8500E6258D /* ThreadCommunicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadCommunicationController.m; sourceTree = "<group>"; };
 		05B82EF6248F1B4000E6258D /* BlockReturnCircleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockReturnCircleController.h; sourceTree = "<group>"; };
@@ -246,6 +255,26 @@
 			path = MainQueue;
 			sourceTree = "<group>";
 		};
+		05614B9B2499AD1E00357509 /* UIViewControllerAnimated */ = {
+			isa = PBXGroup;
+			children = (
+				05614B9C2499AFDC00357509 /* BLTransAnimation.h */,
+				05614B9D2499AFDC00357509 /* BLTransAnimation.m */,
+				05614B9F2499BBFB00357509 /* TransAnimationController.h */,
+				05614BA02499BBFB00357509 /* TransAnimationController.m */,
+			);
+			path = UIViewControllerAnimated;
+			sourceTree = "<group>";
+		};
+		05614BA22499EC1700357509 /* LockUse */ = {
+			isa = PBXGroup;
+			children = (
+				05614BA32499EC2C00357509 /* LockUseViewController.h */,
+				05614BA42499EC2C00357509 /* LockUseViewController.m */,
+			);
+			path = LockUse;
+			sourceTree = "<group>";
+		};
 		05B82EF1248DDC3600E6258D /* ThreadCommunication */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +375,8 @@
 		05CD3C2D2488DDF700106E30 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				05614BA22499EC1700357509 /* LockUse */,
+				05614B9B2499AD1E00357509 /* UIViewControllerAnimated */,
 				05B82F0B2491FD0B00E6258D /* NSOperationAbout */,
 				05B82F072490D40600E6258D /* DelayCode */,
 				05B82F02248F755500E6258D /* DocumentSave */,
@@ -622,8 +653,10 @@
 				05CD3C202488D5FE00106E30 /* SwiftExample.swift in Sources */,
 				05CD3C342488DE6600106E30 /* UIColor+Hex.m in Sources */,
 				05B82F0A2490D43600E6258D /* DelayCodeController.m in Sources */,
+				05614BA52499EC2C00357509 /* LockUseViewController.m in Sources */,
 				053D2B6A247B97FB0095887E /* ViewController.m in Sources */,
 				053D2BA1247D002C0095887E /* MutiThreadPoolViewController.m in Sources */,
+				05614BA12499BBFB00357509 /* TransAnimationController.m in Sources */,
 				05CD3C242488D83600106E30 /* BezierPathController.m in Sources */,
 				053D2B64247B97FB0095887E /* AppDelegate.m in Sources */,
 				05CD3C3C24892E8A00106E30 /* KindOrMemberAboutController.m in Sources */,
@@ -636,6 +669,7 @@
 				05CD3C3F24892F1700106E30 /* FOOObject.m in Sources */,
 				053D2B75247B98020095887E /* main.m in Sources */,
 				05B82EF8248F1B4000E6258D /* BlockReturnCircleController.m in Sources */,
+				05614B9E2499AFDC00357509 /* BLTransAnimation.m in Sources */,
 				05CD3C132487779B00106E30 /* CategoryPropertyController.m in Sources */,
 				05CD3C1D24879F0F00106E30 /* ThreadDependController.m in Sources */,
 				05CD3C162487789D00106E30 /* CategoryPropertyObject.m in Sources */,

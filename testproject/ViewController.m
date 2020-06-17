@@ -19,8 +19,11 @@
 #import "DocumentSaveController.h"
 #import "DelayCodeController.h"
 #import "NSOperationTestController.h"
+#import "BLTransAnimation.h"
+#import "TransAnimationController.h"
+#import "LockUseViewController.h"
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 
 @property (nonatomic,strong)UITableView *fisrtPageTableView;
 
@@ -41,6 +44,8 @@ static NSString *UIDocumentInterationUse = @"UIDocumentInterationUse文件预览
 static NSString *DocumentSave = @"DocumentSave文件缓存";
 static NSString *DelayCode = @"延迟操作测试";
 static NSString *NSOperationTest = @"NSOperation测试";
+static NSString *TransAnimation = @"TransAnimation转场动画";
+static NSString *LockUse = @"多线程 锁测试";
 
 @implementation ViewController
 
@@ -53,8 +58,37 @@ static NSString *NSOperationTest = @"NSOperation测试";
     // Do any additional setup after loading the view.
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    self.navigationController.delegate = self;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.navigationController.navigationBarHidden = NO;
+    if (self.navigationController.delegate == self) {
+        self.navigationController.delegate = nil;
+    }
+}
+
+// MARK: - UINavigationControllerDelegate
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController animationControllerForOperation:(UINavigationControllerOperation)operation fromViewController:(UIViewController *)fromVC toViewController:(UIViewController *)toVC {
+    if (fromVC == self && [toVC isKindOfClass:[TransAnimationController class]]) {
+        return [[BLTransAnimation alloc] init];
+    }
+    
+    return nil;
+}
+
 - (void)createrDataSource{
     self.datasource = [NSMutableArray new];
+    [self.datasource addObject:LockUse];
+    [self.datasource addObject:TransAnimation];
     [self.datasource addObject:NSOperationTest];
     [self.datasource addObject:queueAbout];
     [self.datasource addObject:threadPoolAbout];
@@ -95,6 +129,10 @@ static NSString *NSOperationTest = @"NSOperation测试";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *didSelectedCell = self.datasource[indexPath.row];
+    if ([didSelectedCell isEqualToString:LockUse]) {
+        LockUseViewController *vc = [LockUseViewController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     if ([didSelectedCell isEqualToString:threadPoolAbout]) {
         MutiThreadPoolViewController *vc = [MutiThreadPoolViewController new];
         [self.navigationController pushViewController:vc animated:YES];
@@ -141,6 +179,10 @@ static NSString *NSOperationTest = @"NSOperation测试";
     }
     if ([didSelectedCell isEqualToString:NSOperationTest]) {
         NSOperationTestController *vc = [NSOperationTestController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    if ([didSelectedCell isEqualToString:TransAnimation]) {
+        TransAnimationController *vc = [TransAnimationController new];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

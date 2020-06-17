@@ -32,6 +32,16 @@
     return YES;
 }
 
+// 此方法已过期了
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation{
+    if ([sourceApplication isEqualToString:@"com.apple.mobilesafari"]) {
+        return NO;
+    }
+    return YES;
+}
 
 
 @end

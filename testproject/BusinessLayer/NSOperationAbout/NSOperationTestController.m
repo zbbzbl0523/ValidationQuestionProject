@@ -17,7 +17,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self NSOperationTest];
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+    NSLog(@"0");
+    // 开始异步请求操作（部分代码略）
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"1");
+        // This function returns non-zero if a thread is woken. Otherwise, zero is returned.
+        // 2.在网络请求结束后发送通知信号
+        dispatch_semaphore_signal(semaphore);
+    });
+    // Returns zero on success, or non-zero if the timeout occurred.
+    // 3.发送等待信号
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+    NSLog(@"2");
     // Do any additional setup after loading the view.
 }
 
