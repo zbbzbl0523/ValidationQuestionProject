@@ -20,6 +20,8 @@
 		05614B9E2499AFDC00357509 /* BLTransAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614B9D2499AFDC00357509 /* BLTransAnimation.m */; };
 		05614BA12499BBFB00357509 /* TransAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614BA02499BBFB00357509 /* TransAnimationController.m */; };
 		05614BA52499EC2C00357509 /* LockUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614BA42499EC2C00357509 /* LockUseViewController.m */; };
+		05614BA9249B376A00357509 /* SDWebimageLearnController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05614BA8249B376A00357509 /* SDWebimageLearnController.m */; };
+		05614BAB249B3D2500357509 /* V60.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05614BAA249B3D2500357509 /* V60.jpg */; };
 		05B82EF4248DDC8500E6258D /* ThreadCommunicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EF3248DDC8500E6258D /* ThreadCommunicationController.m */; };
 		05B82EF8248F1B4000E6258D /* BlockReturnCircleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EF7248F1B4000E6258D /* BlockReturnCircleController.m */; };
 		05B82EFB248F1B5200E6258D /* BlockReturnCircleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B82EFA248F1B5200E6258D /* BlockReturnCircleObject.m */; };
@@ -90,6 +92,9 @@
 		05614BA02499BBFB00357509 /* TransAnimationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TransAnimationController.m; sourceTree = "<group>"; };
 		05614BA32499EC2C00357509 /* LockUseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LockUseViewController.h; sourceTree = "<group>"; };
 		05614BA42499EC2C00357509 /* LockUseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LockUseViewController.m; sourceTree = "<group>"; };
+		05614BA7249B376A00357509 /* SDWebimageLearnController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDWebimageLearnController.h; sourceTree = "<group>"; };
+		05614BA8249B376A00357509 /* SDWebimageLearnController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDWebimageLearnController.m; sourceTree = "<group>"; };
+		05614BAA249B3D2500357509 /* V60.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = V60.jpg; sourceTree = "<group>"; };
 		05B82EF2248DDC8500E6258D /* ThreadCommunicationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreadCommunicationController.h; sourceTree = "<group>"; };
 		05B82EF3248DDC8500E6258D /* ThreadCommunicationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreadCommunicationController.m; sourceTree = "<group>"; };
 		05B82EF6248F1B4000E6258D /* BlockReturnCircleController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BlockReturnCircleController.h; sourceTree = "<group>"; };
@@ -208,6 +213,7 @@
 				05CD3C1E2488D5FD00106E30 /* testproject-Bridging-Header.h */,
 				05CD3C292488DB8F00106E30 /* TestProject.pch */,
 				05B82F00248F2FBF00E6258D /* 计算机.pdf */,
+				05614BAA249B3D2500357509 /* V60.jpg */,
 			);
 			path = testproject;
 			sourceTree = "<group>";
@@ -273,6 +279,15 @@
 				05614BA42499EC2C00357509 /* LockUseViewController.m */,
 			);
 			path = LockUse;
+			sourceTree = "<group>";
+		};
+		05614BA6249B374300357509 /* SDWebimageEntry */ = {
+			isa = PBXGroup;
+			children = (
+				05614BA7249B376A00357509 /* SDWebimageLearnController.h */,
+				05614BA8249B376A00357509 /* SDWebimageLearnController.m */,
+			);
+			path = SDWebimageEntry;
 			sourceTree = "<group>";
 		};
 		05B82EF1248DDC3600E6258D /* ThreadCommunication */ = {
@@ -375,6 +390,7 @@
 		05CD3C2D2488DDF700106E30 /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				05614BA6249B374300357509 /* SDWebimageEntry */,
 				05614BA22499EC1700357509 /* LockUse */,
 				05614B9B2499AD1E00357509 /* UIViewControllerAnimated */,
 				05B82F0B2491FD0B00E6258D /* NSOperationAbout */,
@@ -579,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053D2B72247B98020095887E /* LaunchScreen.storyboard in Resources */,
+				05614BAB249B3D2500357509 /* V60.jpg in Resources */,
 				05B82F01248F2FC000E6258D /* 计算机.pdf in Resources */,
 				053D2B6F247B98020095887E /* Assets.xcassets in Resources */,
 				053D2B6D247B97FB0095887E /* Main.storyboard in Resources */,
@@ -670,6 +687,7 @@
 				053D2B75247B98020095887E /* main.m in Sources */,
 				05B82EF8248F1B4000E6258D /* BlockReturnCircleController.m in Sources */,
 				05614B9E2499AFDC00357509 /* BLTransAnimation.m in Sources */,
+				05614BA9249B376A00357509 /* SDWebimageLearnController.m in Sources */,
 				05CD3C132487779B00106E30 /* CategoryPropertyController.m in Sources */,
 				05CD3C1D24879F0F00106E30 /* ThreadDependController.m in Sources */,
 				05CD3C162487789D00106E30 /* CategoryPropertyObject.m in Sources */,

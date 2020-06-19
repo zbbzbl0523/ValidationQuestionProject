@@ -22,6 +22,7 @@
 #import "BLTransAnimation.h"
 #import "TransAnimationController.h"
 #import "LockUseViewController.h"
+#import "SDWebimageLearnController.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate>
 
@@ -46,6 +47,7 @@ static NSString *DelayCode = @"延迟操作测试";
 static NSString *NSOperationTest = @"NSOperation测试";
 static NSString *TransAnimation = @"TransAnimation转场动画";
 static NSString *LockUse = @"多线程 锁测试";
+static NSString *SDtest = @"SDwebimage";
 
 @implementation ViewController
 
@@ -87,6 +89,7 @@ static NSString *LockUse = @"多线程 锁测试";
 
 - (void)createrDataSource{
     self.datasource = [NSMutableArray new];
+    [self.datasource addObject:SDtest];
     [self.datasource addObject:LockUse];
     [self.datasource addObject:TransAnimation];
     [self.datasource addObject:NSOperationTest];
@@ -129,6 +132,10 @@ static NSString *LockUse = @"多线程 锁测试";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSString *didSelectedCell = self.datasource[indexPath.row];
+    if ([didSelectedCell isEqualToString:SDtest]) {
+        SDWebimageLearnController *vc = [SDWebimageLearnController new];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     if ([didSelectedCell isEqualToString:LockUse]) {
         LockUseViewController *vc = [LockUseViewController new];
         [self.navigationController pushViewController:vc animated:YES];

@@ -186,8 +186,10 @@ static id<SDImageLoader> _defaultImageLoader;
     SDWebImageCombinedOperation *operation = [SDWebImageCombinedOperation new];
     operation.manager = self;
 
+    /// 判断是否为失效的url
     BOOL isFailedUrl = NO;
     if (url) {
+        /// 限制并发修改，否则多线程情况下，会数据竞争的 可能会判断错误！
         SD_LOCK(self.failedURLsLock);
         isFailedUrl = [self.failedURLs containsObject:url];
         SD_UNLOCK(self.failedURLsLock);
@@ -267,11 +269,20 @@ static id<SDImageLoader> _defaultImageLoader;
     }
     
     // Check whether we should query cache
+    /// 判断是不是只能通过下载获得，而不能通过缓存获得 (一般不会设置)
     BOOL shouldQueryCache = !SD_OPTIONS_CONTAINS(options, SDWebImageFromLoaderOnly);
     if (shouldQueryCache) {
+        /// 开始找缓存
+    
+        /// 内部根据请求URL和一个filter来决定缓存key
         NSString *key = [self cacheKeyForURL:url context:context];
         @weakify(operation);
-        operation.cacheOperation = [imageCache queryImageForKey:key options:options context:context cacheType:queryCacheType completion:^(UIImage * _Nullable cachedImage, NSData * _Nullable cachedData, SDImageCacheType cacheType) {
+        operation.cacheOperation =
+        [imageCache queryImageForKey:key
+                             options:options
+                             context:context
+                           cacheType:queryCacheType
+                          completion:^(UIImage * _Nullable cachedImage, NSData * _Nullable cachedData, SDImageCacheType cacheType) {
             @strongify(operation);
             if (!operation || operation.isCancelled) {
                 // Image combined operation cancelled by user
@@ -284,6 +295,7 @@ static id<SDImageLoader> _defaultImageLoader;
                 return;
             }
             
+            /// 以上，都是在找不到缓存的情况下，然后执行下载任务
             // Continue download process
             [self callDownloadProcessForOperation:operation url:url options:options context:context cachedImage:cachedImage cachedData:cachedData cacheType:cacheType progress:progressBlock completed:completedBlock];
         }];

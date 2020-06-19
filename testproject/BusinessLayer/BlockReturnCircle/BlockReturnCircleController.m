@@ -11,6 +11,9 @@
 
 @interface BlockReturnCircleController ()
 
+@property (nonatomic,copy)void (^blockOne)(void);
+@property (nonatomic,copy)void (^blockTwo)(void);
+
 @end
 
 @implementation BlockReturnCircleController
@@ -18,7 +21,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self networkText];
+//    [self networkText];
+    
+    @autoreleasepool {} __weak typeof(self) selfWeak = self;
+    self.blockOne = ^{
+        @autoreleasepool {} __strong typeof(self) self = selfWeak;
+        [self networkText];
+    };
+    self.blockTwo = ^{
+        [self networkText];
+    };
+    
     // Do any additional setup after loading the view.
 }
 
